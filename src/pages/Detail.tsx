@@ -31,7 +31,9 @@ export default function Detail() {
     doc.text(`ID : ${id}`, 20, 60);
 
     doc.text(`Statut : ${status}`, 20, 70);
-
+    doc.setTextColor(100, 0, 200);
+    doc.setFont("helvetica", "bold");
+    doc.text(`Date: ${new Date().toLocaleDateString()}`, 20, 80);
     doc.save(`candidat-${data?.name}.pdf`);
   };
 
