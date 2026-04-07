@@ -3,7 +3,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { candidateService } from "../services/candidateService";
 import { extractApiError, extractApiSuccess } from "../utils/Apierror";
 
-const PAGE_SIZE = 8;
+const PAGE_SIZE = 4;
 
 export function useCandidates() {
   const queryClient = useQueryClient();
