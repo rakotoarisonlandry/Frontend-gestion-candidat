@@ -9,9 +9,9 @@ test("login works", async () => {
     </BrowserRouter>
   );
 
-  const button = screen.getByRole("button", { name: /login/i });
+  const button = screen.getByRole("button", { name: /Se connecter/i });
 
   fireEvent.click(button);
 
-  expect(await screen.findByText("Login")).toBeInTheDocument();
+  expect(await screen.findByText("Se connecter")).toBeInTheDocument();
 });
