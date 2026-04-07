@@ -34,7 +34,7 @@ export default function Candidates() {
 
           <Link to={`/detail/${c._id}`}>Voir</Link> |{" "}
           <Link to={`/edit/${c._id}`}>Modifier</Link> |{" "}
-          <button onClick={() => deleteMutation.mutate(c._id)}>
+          <button  onClick={() => deleteMutation.mutate(c._id)}>
             Supprimer
           </button>
         </div>
