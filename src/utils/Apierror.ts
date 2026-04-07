@@ -1,5 +1,7 @@
-
-export function extractApiError(err: unknown, fallback = "Une erreur inattendue est survenue."): string {
+export function extractApiError(
+  err: unknown,
+  fallback = "Une erreur inattendue est survenue.",
+): string {
   if (!err || typeof err !== "object") return fallback;
 
   const axiosErr = err as { response?: { data?: unknown; status?: number } };
@@ -14,7 +16,8 @@ export function extractApiError(err: unknown, fallback = "Une erreur inattendue 
     const d = data as Record<string, unknown>;
 
     // { message: string }
-    if (typeof d.message === "string" && d.message.trim()) return d.message.trim();
+    if (typeof d.message === "string" && d.message.trim())
+      return d.message.trim();
 
     // { error: string }
     if (typeof d.error === "string" && d.error.trim()) return d.error.trim();
@@ -24,7 +27,11 @@ export function extractApiError(err: unknown, fallback = "Une erreur inattendue 
       const first = d.errors[0];
       if (typeof first === "string") return first;
       // express-validator: { msg: string }
-      if (typeof first === "object" && first !== null && typeof (first as Record<string, unknown>).msg === "string") {
+      if (
+        typeof first === "object" &&
+        first !== null &&
+        typeof (first as Record<string, unknown>).msg === "string"
+      ) {
         return (first as Record<string, unknown>).msg as string;
       }
     }
@@ -33,8 +40,10 @@ export function extractApiError(err: unknown, fallback = "Une erreur inattendue 
   return fallback;
 }
 
-
-export function extractApiSuccess(res: unknown, fallback = "Opération réussie."): string {
+export function extractApiSuccess(
+  res: unknown,
+  fallback = "Opération réussie.",
+): string {
   if (!res || typeof res !== "object") return fallback;
 
   const r = res as { data?: unknown };
@@ -45,8 +54,10 @@ export function extractApiSuccess(res: unknown, fallback = "Opération réussie.
 
   if (typeof data === "object" && data !== null) {
     const d = data as Record<string, unknown>;
-    if (typeof d.message === "string" && d.message.trim()) return d.message.trim();
-    if (typeof d.success === "string" && d.success.trim()) return d.success.trim();
+    if (typeof d.message === "string" && d.message.trim())
+      return d.message.trim();
+    if (typeof d.success === "string" && d.success.trim())
+      return d.success.trim();
   }
 
   return fallback;
