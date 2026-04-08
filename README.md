@@ -1,73 +1,134 @@
-# React + TypeScript + Vite
+# Frontend - Gestion de Candidats
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+Application React permettant la gestion des candidats avec interface moderne, validation et génération PDF.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## Stack technique
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* React + TypeScript
+* React Query
+* React Router
+* Axios
+* Tailwind CSS
+* Playwright (E2E)
+* Vitest + Testing Library
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Installation
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 1. Cloner le projet
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone <repo-frontend>
+cd frontend-gestion-candidat
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. Installer les dépendances
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+### 3. Configurer `.env`
+
+```env
+VITE_API_URL=https://backend-gestion-candidat.onrender.com/api
+```
+
+### 4. Lancer le projet
+
+```bash
+npm run dev
+```
+
+---
+
+##  Fonctionnalités
+
+* Login JWT
+* Liste candidats (filtre + pagination)
+* Création / édition
+* Page détail
+* Validation async
+* Suppression
+* Export PDF
+
+---
+
+## Stratégie de tests
+
+###  Tests unitaires
+
+* Hooks + utils
+* Vitest
+
+### Tests d’intégration
+
+* MSW (Mock API)
+
+
+#### Scénario :
+
+* Login
+* Création candidat
+* Validation
+* Vérification affichage
+---
+
+##  UX/UI
+
+* Loading states
+* Gestion erreurs
+* Notifications
+* Design moderne (Tailwind)
+
+---
+
+##  Déploiement
+
+👉 https://frontend-gestion-candidat.onrender.com
+
+---
+
+##  Structure
+
+```
+src/
+ ├── pages/
+ ├── components/
+ ├── api/
+ ├── hooks/
+ └── utils/
+```
+
+---
+
+##  CI/CD
+
+* GitHub Actions :
+
+  * Tests automatiques
+  * Coverage
+  * Blocage si échec
+
+---
+
+##  Points forts
+
+* UX fluide
+* Architecture claire
+* Tests E2E
+* Export PDF
+
+---
+
+## Bonus
+
+* Gestion erreurs API centralisée
+* Token auto (interceptors Axios)
+
+---
