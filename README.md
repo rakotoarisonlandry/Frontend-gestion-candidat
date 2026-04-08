@@ -101,8 +101,12 @@ src/
  ├── pages/
  ├── components/
  ├── api/
+ ├── services/
+ ├── types/
+ ├── mocks/
  ├── hooks/
  └── utils/
+     App.tsx
 ```
 
 ---
