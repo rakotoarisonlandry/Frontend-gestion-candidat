@@ -1,6 +1,6 @@
 # Frontend - Gestion de Candidats
 
-## 📌 Description
+## Description
 
 Application React permettant la gestion des candidats avec interface moderne, validation et génération PDF.
 

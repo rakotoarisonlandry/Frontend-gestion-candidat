@@ -11,7 +11,6 @@ export default function Detail() {
   const queryClient = useQueryClient();
   const [successMsg, setSuccessMsg] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
-  const [status, setStatus] = useState("Candidat en attente de validation");
   const { data, isLoading } = useQuery({
     queryKey: ["candidate", id],
     queryFn: async () => {
@@ -29,8 +28,6 @@ export default function Detail() {
     doc.text(`Nom : ${data?.name}`, 20, 40);
     doc.text(`Email : ${data?.email}`, 20, 50);
     doc.text(`ID : ${id}`, 20, 60);
-
-    doc.text(`Statut : ${status}`, 20, 70);
     doc.setTextColor(100, 0, 200);
     doc.setFont("helvetica", "bold");
     doc.text(`Date: ${new Date().toLocaleDateString()}`, 20, 80);
@@ -44,7 +41,6 @@ export default function Detail() {
       setSuccessMsg(extractApiSuccess(res, "Candidat validé avec succès."));
       setErrorMsg("");
       setTimeout(() => setSuccessMsg(""), 3500);
-      setStatus("Candidat validé");
     },
     onError: (err) => {
       setErrorMsg(extractApiError(err));
