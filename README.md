@@ -1,6 +1,6 @@
 # Frontend - Gestion de Candidats
 
-## Description
+## 📌 Description
 
 Application React permettant la gestion des candidats avec interface moderne, validation et génération PDF.
 
@@ -47,7 +47,7 @@ npm run dev
 
 ---
 
-##  Fonctionnalités
+## Fonctionnalités
 
 * Login JWT
 * Liste candidats (filtre + pagination)
@@ -61,7 +61,7 @@ npm run dev
 
 ## Stratégie de tests
 
-###  Tests unitaires
+### tests unitaires
 
 * Hooks + utils
 * Vitest
@@ -70,6 +70,7 @@ npm run dev
 
 * MSW (Mock API)
 
+### Tests E2E (Playwright)
 
 #### Scénario :
 
@@ -77,9 +78,26 @@ npm run dev
 * Création candidat
 * Validation
 * Vérification affichage
+
+#### Lancer :
+
+```bash
+npm run test:e2e
+```
+
 ---
 
-##  UX/UI
+## Capture automatique
+
+Dans 
+ ├── test-results/
+     ├── app-page-loads
+en version png 
+
+
+---
+
+## UX/UI
 
 * Loading states
 * Gestion erreurs
@@ -88,30 +106,30 @@ npm run dev
 
 ---
 
-##  Déploiement
+## Déploiement
 
 👉 https://frontend-gestion-candidat.onrender.com
 
 ---
 
-##  Structure
+## Structure
 
 ```
 src/
  ├── pages/
  ├── components/
  ├── api/
- ├── services/
- ├── types/
- ├── mocks/
  ├── hooks/
+ ├── mocks/
+ ├── types/
+ ├── services/
  └── utils/
-     App.tsx
+ └── App.tsx
 ```
 
 ---
 
-##  CI/CD
+## CI/CD
 
 * GitHub Actions :
 
@@ -121,12 +139,12 @@ src/
 
 ---
 
-##  Points forts
+## Points forts
 
 * UX fluide
 * Architecture claire
 * Tests E2E
-* Export PDF
+* Export PDF (différenciation)
 
 ---
 
