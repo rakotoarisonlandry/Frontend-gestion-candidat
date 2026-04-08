@@ -66,6 +66,10 @@ npm run dev
 * Hooks + utils
 * Vitest
 
+```bash
+npm run test
+```
+
 ### Tests d’intégration
 
 * MSW (Mock API)
